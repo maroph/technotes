@@ -1,0 +1,9 @@
+.* export-ignore
+#
+* text=auto
+#
+*.bat text
+*.md  text
+#
+*.pdf binary
+*.png binary
