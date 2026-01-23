@@ -3,7 +3,7 @@ MD_LANG:de-DE
 MD_TITLE:Meine WAMP Umgebung
 MD_SUBTITLE:
 MD_AUTHOR:Manfred Rosenboom
-MD_DATE:21-JAN-2026
+MD_DATE:23-JAN-2026
 MD_SUBJECT:Erzeugung meiner WAMP Testumgebung
 MD_KEYWORDS:WAMP, Apache, MariaDB, PHP, Windows
 MD_PUBLISHER:
@@ -18,7 +18,7 @@ MD_END -->
 | E-Mail   | [maroph@pm.me](mailto:maroph@pm.me) |
 | Web      | https://maroph.github.io/           |
 | Mastodon | https://mastodon.social/@maroph     |
-| Datum    | 21.01.2026, 10:18                  |
+| Datum    | 23.01.2026, 15:56                   |
 
 > Die Source zu diesem Dokument ist in
 > [GitHub](https://github.com/maroph/technotes/tree/main/WAMP)
@@ -144,16 +144,28 @@ Dabei wird das Verzeichnis _data angelegt_, in dem die
 Datenbanken abgelegt werde. In diesem Verzeichnis wird 
 auf die Konfigurationsdatei _my.ini_ abgelegt.
 
-Damit auf den Datenbank Server nur vom lokalen Rechner
-aus zugegriffen werden kann, habe ich zur Datei
-_my.ini_ noch eine Bind Anweisung hinzugefügt:
+Zur generierten Datei _my.ini_ habe  ich zwei Änderungen
+hinzugefügt:
 
+1. Damit auf den Datenbank Server nur vom lokalen Rechner
+aus zugegriffen werden kann, habe ich eine Bind Anweisung hinzugefügt.
+2. Das Default Encoding habe ich auf UTF-8 gesetzt.
+ 
+Datei _my.ini_:
 ```
 [mysqld]
 datadir=C:/Tools/wamp/mariadb/data
 bind_address=127.0.0.1
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+[mysql]
+default-character-set = utf8mb4
+
 [client]
-plugin-dir=C:\Tools\wamp\mariadb/lib/plugin
+plugin-dir=C:/Tools/wamp/mariadb/lib/plugin
+default-character-set = utf8mb4
 ```
 
 Zum Starten des Datenbankservers verwende ich die 
@@ -621,3 +633,43 @@ mit dem Benutzer _root_ und einem leeren Passwort (_""_)
 anmelden.
 
 ![phpMyAdmin Login](./phpMyAdmin_Login.png)
+
+### Testdatenbank anlegen
+
+|               |        |
+|---------------|--------|
+| Datenbankname | dbwamp |
+| Benutzer      | wamp   |
+| Passwort      | 123456 |
+
+Mit Hilfe von _phpMyAdmin_ kann man auf einfache Weise eine
+Datenbank anlegen.
+
+Datenbank anlegen
+![Datenbank anlegen](./phpMyAdmin_CreateDatabase.png)
+
+Benutzer anlegen
+![Benutzer Anlegen](./phpMyAdmin_CreateUser.png)
+
+Benutzerrechte setzen
+![Benutzerrechte setzen](phpMyAdmin_UserGrants.png)
+
+### Verbindung zur Testdatenbank aufbauen
+
+```
+C:\Tools\wamp>mariadb\bin\mysql.exe --user=wamp --password=123456 dbwamp
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 91
+Server version: 11.8.5-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [dbwamp]> exit
+Bye
+```
+
+```
+$conn = new mysqli('localhost', 'wamp', '123456', 'dbwamp');
+```
