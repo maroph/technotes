@@ -1,5 +1,8 @@
 @echo off
+setlocal
 echo %~dp0
+
+PATH=C:\Tools\wamp\php;%PATH%
 
 cd /D %~dp0
 echo Diese Eingabeforderung nicht waehrend des Running beenden
@@ -20,4 +23,5 @@ echo Apache could not be started
 pause
 
 :finish
+endlocal
 exit

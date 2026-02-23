@@ -3,7 +3,7 @@ MD_LANG:de-DE
 MD_TITLE:Meine WAMP Umgebung
 MD_SUBTITLE:
 MD_AUTHOR:Manfred Rosenboom
-MD_DATE:23-JAN-2026
+MD_DATE:23-FEB-2026
 MD_SUBJECT:Erzeugung meiner WAMP Testumgebung
 MD_KEYWORDS:WAMP, Apache, MariaDB, PHP, Windows
 MD_PUBLISHER:
@@ -18,7 +18,7 @@ MD_END -->
 | E-Mail   | [maroph@pm.me](mailto:maroph@pm.me) |
 | Web      | https://maroph.github.io/           |
 | Mastodon | https://mastodon.social/@maroph     |
-| Datum    | 23.01.2026, 15:56                   |
+| Datum    | 23.02.2026, 15:06                   |
 
 > Die Source zu diesem Dokument ist in
 > [GitHub](https://github.com/maroph/technotes/tree/main/WAMP)
@@ -297,7 +297,10 @@ _apache_start.bat_:
 
 ```
 @echo off
+setlocal
 echo %~dp0
+
+PATH=C:\Tools\wamp\php;%PATH%
 
 cd /D %~dp0
 echo Diese Eingabeforderung nicht waehrend des Running beenden
@@ -318,6 +321,7 @@ echo Apache could not be started
 pause
 
 :finish
+endlocal
 exit
 ```
 
@@ -526,6 +530,9 @@ extension=curl
 extension=gd
 extension=mbstring
 extension=mysqli
+extension=openssl
+extension=pdo_mysql
+extension=pdo_sqlite
 extension=sqlite3
 extension=zip
 ```
