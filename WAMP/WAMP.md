@@ -3,7 +3,7 @@ MD_LANG:de-DE
 MD_TITLE:Meine WAMP Umgebung
 MD_SUBTITLE:
 MD_AUTHOR:Manfred Rosenboom
-MD_DATE:23-FEB-2026
+MD_DATE:25-FEB-2026
 MD_SUBJECT:Erzeugung meiner WAMP Testumgebung
 MD_KEYWORDS:WAMP, Apache, MariaDB, PHP, Windows
 MD_PUBLISHER:
@@ -18,7 +18,7 @@ MD_END -->
 | E-Mail   | [maroph@pm.me](mailto:maroph@pm.me) |
 | Web      | https://maroph.github.io/           |
 | Mastodon | https://mastodon.social/@maroph     |
-| Datum    | 23.02.2026, 15:06                   |
+| Datum    | 25.02.2026, 09:50                   |
 
 > Die Source zu diesem Dokument ist in
 > [GitHub](https://github.com/maroph/technotes/tree/main/WAMP)
@@ -79,7 +79,7 @@ Sowohl den Web Server als auch den DB Server starte ich
 manuell.
 
 Auf meinem Windows Rechner habe ich die WAMP Umgebung im
-Verzeichnis 
+Verzeichnis
 
 ```
 C:\Tools\wamp
@@ -87,7 +87,7 @@ C:\Tools\wamp
 
 angelegt.
 
-In diesem Verzeichnis gibt es die folgenden Verzeichnisse 
+In diesem Verzeichnis gibt es die folgenden Verzeichnisse
 und Windows Batchdateien:
 
 * apache  
@@ -119,9 +119,9 @@ Den MariaDB Server kann man auch mit der Windows Batchdatei
 _mariadb_stop.bat_ beenden.
 
 ## MariaDB
-Von der 
-[MariaDB Download](https://mariadb.org/download/) 
-Seite habe ich die ZIP-Datei der 
+Von der
+[MariaDB Download](https://mariadb.org/download/)
+Seite habe ich die ZIP-Datei der
 [MariaDB Server 11.8.5](https://mirror1.hs-esslingen.de/pub/Mirrors/mariadb///mariadb-11.8.5/winx64-packages/mariadb-11.8.5-winx64.zip)
 Version heruntergeladen.
 
@@ -141,16 +141,16 @@ Creation of the database was successful
 ```
 
 Dabei wird das Verzeichnis _data angelegt_, in dem die
-Datenbanken abgelegt werde. In diesem Verzeichnis wird 
+Datenbanken abgelegt werde. In diesem Verzeichnis wird
 auf die Konfigurationsdatei _my.ini_ abgelegt.
 
 Zur generierten Datei _my.ini_ habe  ich zwei Änderungen
 hinzugefügt:
 
 1. Damit auf den Datenbank Server nur vom lokalen Rechner
-aus zugegriffen werden kann, habe ich eine Bind Anweisung hinzugefügt.
+   aus zugegriffen werden kann, habe ich eine Bind Anweisung hinzugefügt.
 2. Das Default Encoding habe ich auf UTF-8 gesetzt.
- 
+
 Datei _my.ini_:
 ```
 [mysqld]
@@ -168,7 +168,7 @@ plugin-dir=C:/Tools/wamp/mariadb/lib/plugin
 default-character-set = utf8mb4
 ```
 
-Zum Starten des Datenbankservers verwende ich die 
+Zum Starten des Datenbankservers verwende ich die
 Windows Batchdatei _mariadb_start.bat_:
 
 ```
@@ -237,8 +237,8 @@ Seite habe ich mir die Zip-Datei
 [Apache 2.4.66-260107 Win64](https://www.apachelounge.com/download/VS18/binaries/httpd-2.4.66-260107-Win64-VS18.zip)
 heruntergeladen.
 
-Den Inhalt der ZIP-Datei habe ich im WAMP-Verzeichnis 
-ausgepackt und das Verzeichnis _Apache24_ in _apache_ 
+Den Inhalt der ZIP-Datei habe ich im WAMP-Verzeichnis
+ausgepackt und das Verzeichnis _Apache24_ in _apache_
 umbenannt.
 
 Die im WAMP-Verzeichnis abgelegte Datei _ReadMe.txt_ habe
@@ -292,6 +292,17 @@ DocumentRoot "C:/Tools/wamp/htdocs"
 <Directory "C:/Tools/wamp/htdocs">
 ```
 
+Zum Eintrag
+
+```
+<Directory "C:/Tools/wamp/htdocs">
+```
+
+habe ich die folgende Zeile hinzugefügt:
+
+```
+DirectoryIndex index.php index.html
+```
 Der Apache Web Server wird gestartet mit der Windows Batchdatei
 _apache_start.bat_:
 
@@ -327,7 +338,7 @@ exit
 
 ### HTTPS (SSL)
 Will man lokal auch mit HTTPS Verbindungen testen, kann man
-zusätzlich das Apache SSL Modul aktivieren. 
+zusätzlich das Apache SSL Modul aktivieren.
 
 In der Datei
 
@@ -397,11 +408,11 @@ CustomLog "C:/Tools/wamp/apache/logs/ssl_request_log" \
   Web Server Private Key.
 
 #### Erzeugen eines Self-Signed Serverzertifikat
-Die obigen Dateien habe ich auf einem Debian 13.3 System mit 
+Die obigen Dateien habe ich auf einem Debian 13.3 System mit
 OpenSSL 3.5.4 folgendermaßen erstellt.
 
 Die RSA Bitlänge von 2048 Bits gilt derzeit noch als sicher. Für
-einen Produktivsystem würde ich deshalb eine Bitlänge von 
+einen Produktivsystem würde ich deshalb eine Bitlänge von
 3072 Bits oder 4096 Bits verwenden. Alternativ kann man auch
 einen ECC Algorithmus verwenden.
 
@@ -486,7 +497,7 @@ Certificate:
         b3:ba:b5:c1
 ```
 
-In der WAMP Umgebung kann man OpenSSL 3.6.0.1 verwenden 
+In der WAMP Umgebung kann man OpenSSL 3.6.0.1 verwenden
 (_apache\bin\openssl.exe_).
 
 ## PHP
@@ -496,16 +507,16 @@ Seite habe ich die PHP 8.4.16 Version
 [VS17 x64 Thread Safe (2025-Dec-17 14:54:13)](https://windows.php.net/downloads/releases/php-8.4.16-Win32-vs17-x64.zip)
 heruntergeladen.
 
-Alternativ kann man auch die PHP 8.5.1 Version 
+Alternativ kann man auch die PHP 8.5.1 Version
 [VS17 x64 Thread Safe (2025-Dec-17 17:15:55)](https://windows.php.net/downloads/releases/php-8.5.1-Win32-vs17-x64.zip)
 verwenden. Da auf meinem Debian 13 System PHP 8.4 installiert
-ist, verwende ich für meine Testumgebung ebenfalls eine 
+ist, verwende ich für meine Testumgebung ebenfalls eine
 PHP 8.4 Version.
 
 Im WAMP-Verzeichnis habe ich das Verzeichnis _php_ angelegt
 und die ZIP-Datei in dieses Verzeichnis ausgepackt.
 
-Zusätzlich habe ich im WAMP-Verzeichnis das Verzeichnis 
+Zusätzlich habe ich im WAMP-Verzeichnis das Verzeichnis
 _tmp_ angelegt.
 
 Im Verzeichnis _php_ habe ich die Datei _php.ini-development_
@@ -559,8 +570,8 @@ Seite habe ich die ZIP-Datei
 [phpMyAdmin-5.2.3-all-languages.zip](https://files.phpmyadmin.net/phpMyAdmin/5.2.3/phpMyAdmin-5.2.3-all-languages.zip)
 und im WAMP-Verzeichnis ausgepackt.
 
-Das dabei entstandene Verzeichnis 
-_phpMyAdmin-5.2.3-all-languages_ habe ich in 
+Das dabei entstandene Verzeichnis
+_phpMyAdmin-5.2.3-all-languages_ habe ich in
 _phpMyAdmin_ umbenannt.
 
 In der Datei _apache/conf/httpd.conf_ habe ich nach der Zeile
@@ -619,7 +630,7 @@ Auf dieser Seite wählt man "Neuer Server" aus.
 
 ![phpMyAdmin Setup 3](./phpMyAdmin_Setup3.png)
 
-Klickt man auf "Download", kann man die Datei 
+Klickt man auf "Download", kann man die Datei
 _config.inc.php_ in das Verzeichnis _phpMyAdmin_ herunterladen.
 
 In dieser Datei muss man nach der Zeile
@@ -677,6 +688,13 @@ MariaDB [dbwamp]> exit
 Bye
 ```
 
+PHP Connect  
 ```
 $conn = new mysqli('localhost', 'wamp', '123456', 'dbwamp');
+
+or 
+
+$pdo = new PDO('mysql:host=localhost;dbname=dbwamp', 'wamp', '123456', [
+           PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+]);
 ```
