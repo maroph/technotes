@@ -1,3 +1,3 @@
 # TOC
 
-[WAMP](https://github.com/maroph/technotes/tree/main/notes/WAMP)
+[WAMP](https://github.com/maroph/technotes/tree/main/Notes/WAMP)
