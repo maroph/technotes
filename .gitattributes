@@ -2,7 +2,7 @@
 #
 * text=auto
 #
-*.bat text
+*.bat text eol=crlf
 *.md  text
 #
 *.pdf binary
