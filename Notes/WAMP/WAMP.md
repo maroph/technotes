@@ -18,10 +18,11 @@ MD_END -->
 | E-Mail   | [maroph@pm.me](mailto:maroph@pm.me) |
 | Web      | https://maroph.github.io/           |
 | Mastodon | https://mastodon.social/@maroph     |
+| Datum    | 26.09.2026, 17:43                   |
 | Datum    | 25.02.2026, 09:50                   |
 
 > Die Source zu diesem Dokument ist in
-> [GitHub](https://github.com/maroph/technotes/tree/main/WAMP)
+> [GitHub](https://github.com/maroph/technotes/tree/main/Notes/WAMP)
 > hinterlegt.
 
 ---
