@@ -2,8 +2,12 @@
 #
 * text=auto
 #
-*.bat text eol=crlf
-*.md  text
+*.bat  text eol=crlf
+*.bash text eol=lf
+*.css  text
+*.md   text
+*.toml text
 #
-*.pdf binary
-*.png binary
+*.pdf   binary
+*.png   binary
+*.woff2 binary

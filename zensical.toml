@@ -1,0 +1,222 @@
+# 26-SEP-2026
+# Zensical >= 0.0.65
+[project]
+dev_addr = "localhost:8000"
+
+site_name = "TechNotes"
+site_description = "My TechNotes Site"
+site_author = "Manfred Rosenboom>"
+site_url = "https://maroph.github.io/technotes/"
+
+docs_dir = "docs"
+site_dir = "site"
+use_directory_urls = false
+
+repo_url = "https://github.com/maroph/technotes"
+repo_name = "maroph/technotes"
+edit_uri = "edit/main/docs/"
+
+copyright = """
+Copyright &copy 2026 <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> by <a href="https://maroph.github.io/">Manfred Rosenboom</a><br/>
+<a href="#__consent">Change cookie settings</a>
+"""
+
+nav = [
+  { "Home" = "index.md" },
+  { "TOC" = "toc.md" },
+  { "Info" = [
+    { "Info" = "info/index.md" },
+    { "License" = "info/license.md" }
+  ]},
+  { "Blog" = [
+    { "Blog" = "blog/index.md" }
+  ]}
+]
+
+extra_css = ["assets/extra/css/extra.css"]
+
+
+[project.validation]
+invalid_links = true
+invalid_link_anchors = true
+# unresolved_references: 0.0.56: deprecated, will be remove in a future release
+unresolved_references = false
+
+
+[project.theme]
+font = false
+# favicon = "assets/great_wave_off_kanagawa_100x100.png"
+# logo = "assets/great_wave_off_kanagawa_100x100.png"
+favicon = "assets/TechNotes-logo_100x100.png"
+logo = "assets/TechNotes-logo_100x100.png"
+language = "en"
+direction = "ltr"
+features = [
+    "announce.dismiss",
+    "content.action.edit",
+    "content.action.view",
+    "content.code.annotate",
+    "content.code.copy",
+    "content.code.select",
+    "content.footnote.tooltips",
+    "content.tabs.link",
+    "content.tooltips",
+    "header.autohide",
+    "navigation.expand",
+    "navigation.footer",
+    "navigation.indexes",
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.path",
+    "navigation.prune",
+    "navigation.sections",
+    "navigation.tabs",
+    "navigation.tabs.sticky",
+    "navigation.top",
+    "navigation.tracking",
+    "search.highlight",
+    "toc.follow"
+]
+
+palette = [
+  {
+    scheme = "default",
+    toggle = {
+      icon = "lucide/sun",
+      name = "Switch to dark mode"
+    }
+  },
+  {
+    scheme = "slate",
+    toggle = {
+      icon = "lucide/moon",
+      name = "Switch to light mode"
+    }
+  }
+]
+
+
+[project.theme.icon]
+# logo = "lucide/smile"
+repo = "fontawesome/brands/github"
+edit = "material/pencil"
+view = "material/eye"
+previous = "fontawesome/solid/angle-left"
+next = "fontawesome/solid/angle-right"
+
+
+# Enabled Markdown Extensions
+[project.markdown_extensions.attr_list]
+
+[project.markdown_extensions.pymdownx.emoji]
+emoji_index = "zensical.extensions.emoji.twemoji" 
+emoji_generator = "zensical.extensions.emoji.to_svg"
+
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = "true"
+line_spans = "__span"
+pygments_lang_class = "true"
+
+[project.markdown_extensions.pymdownx.inlinehilite]
+
+[project.markdown_extensions.pymdownx.snippets]
+
+[project.markdown_extensions.pymdownx.superfences]
+
+[project.markdown_extensions.tables]
+
+
+[project.plugins.blog]
+enabled = true
+authors = true
+blog_dir = "blog"
+blog_toc = true
+draft = false
+draft_on_serve = false
+draft_if_future_date = false
+pagination = true
+pagination_per_page = 10
+pagination_url_format = "page/{page}"
+post_date_format = "MMMM dd, yyyy H:mm"
+pagination_if_single_page = false
+post_excerpt = "optional"
+post_excerpt_separator = "<!-- more -->"
+post_readtime = false
+archive = true
+archive_name = "Archive"
+archive_date_format = "yyyy"
+archive_url_date_format = "yyyy"
+# URL: site_url/blog/archive/yyyy.html
+archive_url_format = "archive/{date}"
+archive_pagination = false
+archive_toc = true
+categories = false
+
+[project.plugins.minify]
+enabled = false
+minify_html = true
+minify_js = false
+minify_css = false
+htmlmin_opts = {
+    remove_comments = true
+}
+
+[project.plugins.rss]
+enabled = true
+match_path = "blog/posts/.*"
+abstract_chars_count = 160
+abstract_delimiter = "<!-- more -->"
+date_from_meta = {
+    as_creation = "date",
+    as_update = "git",
+    datetime_format = "%Y-%m-%d %H:%M",
+    default_timezone = "Europe/Berlin",
+    default_time = "12:00"
+}
+feed_description = "My TechNotes Blog"
+feeds_filenames = {
+    json_created = "feed_created.json",
+    json_updated = "feed_updated.json",
+    rss_created = "feed_created.xml",
+    rss_updated = "feed_updated.xml"
+}
+feed_title = "TechNotes Blog"
+feed_ttl = 1440
+image = "assets/128px-Feed-icon.svg.png"
+json_feed_enabled = false
+length = 10
+pretty_print = true
+rss_feed_enabled = true
+use_git = true
+
+
+[project.extra]
+generator = true
+
+social = [
+  {
+    icon = "fontawesome/brands/github",
+    link = "https://github.com/maroph",
+    name = "github.com/maroph"
+  },
+  {
+    icon = "fontawesome/brands/mastodon",
+    link = "https://mastodon.social/@maroph",
+    name = "mastodon.social/@maroph"
+  }
+]
+
+[project.extra.consent]
+title = "Cookie consent"
+description = """
+    We use cookies to recognize your repeated visits and preferences, as well
+    as to measure the effectiveness of our documentation and whether users
+    find what they're searching for. With your consent, you're helping us to
+    make our documentation better.
+"""
+actions = [
+    "accept",
+    "reject",
+    "manage" 
+]
+
