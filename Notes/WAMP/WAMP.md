@@ -1,25 +1,24 @@
-<!-- MD_BEGIN
-MD_LANG:de-DE
-MD_TITLE:Meine WAMP Umgebung
-MD_SUBTITLE:
-MD_AUTHOR:Manfred Rosenboom
-MD_DATE:25-FEB-2026
-MD_SUBJECT:Erzeugung meiner WAMP Testumgebung
-MD_KEYWORDS:WAMP, Apache, MariaDB, PHP, Windows
-MD_PUBLISHER:
-MD_LICENSE:CC-BY 4.0
-MD_END -->
-
+---
+language: de
+title: Meine WAMP Umgebung
+author: Manfred Rosenboom
+date: 25.02.2026
+subject: Erzeugung meiner WAMP Testumgebung
+keywords: Apache Web Server, MariaDB, PHP, Windows
+rights: (c) 2026 Manfred Rosenboom, CC-BY 4.0
+---
+ 
 # Meine WAMP Umgebung
-
-|          |                                     |
-|----------|-------------------------------------|
-| Autor    | Manfred Rosenboom                   |
-| E-Mail   | [maroph@pm.me](mailto:maroph@pm.me) |
-| Web      | https://maroph.github.io/           |
-| Mastodon | https://mastodon.social/@maroph     |
-| Datum    | 26.09.2026, 17:43                   |
-| Datum    | 25.02.2026, 09:50                   |
+ 
+|           |                                       |
+|-----------|---------------------------------------|
+| Titel     | Meine WAMP Umgebung                   |
+| Autor     | Manfred Rosenboom                     |
+| E-Mail    | [maroph@pm.me](mailto:maroph@pm.me)   |
+| Web       | https://maroph.github.io/             |
+| Mastodon  | https://mastodon.social/@maroph       |
+| Datum     | 25.02.2026                            |
+| Copyright | © 2026 CC-BY 4.0 by Manfred Rosenboom |
 
 > Die Source zu diesem Dokument ist in
 > [GitHub](https://github.com/maroph/technotes/tree/main/Notes/WAMP)
@@ -45,7 +44,7 @@ __        ___    __  __ ____
 
 ---
 
-# Einleitung
+## Einleitung
 Als Ablaufumgebung für meine Webentwicklung mit HTML,
 CSS, JavaScript und PHP verwende ich schon seit vielen Jahren
 [XAMPP](https://www.apachefriends.org/).
@@ -62,7 +61,7 @@ Nach derzeitigem Stand ist eine aktualisierte Version eher
 unwahrscheinlich. Ich habe mich deshalb entschlossen, eine
 eigene Ablaufumgebung für Windows zusammenzustellen.
 
-# Aufbau der WAMP Umgebung
+## Aufbau der WAMP Umgebung
 > Genau wie die XAMPP Umgebung ist meine WAMP Umgebung eine
 > Ablaufumgebung für die **Entwicklung**. D.h.: sowohl
 > XAMPP als auch WAMP sollten **niemals** in einer
@@ -119,7 +118,7 @@ Schließen der zugehörigen Fenster werden die Server beendet.
 Den MariaDB Server kann man auch mit der Windows Batchdatei
 _mariadb_stop.bat_ beenden.
 
-## MariaDB
+### MariaDB
 Von der
 [MariaDB Download](https://mariadb.org/download/)
 Seite habe ich die ZIP-Datei der
@@ -231,7 +230,7 @@ MariaDB [(none)]> exit
 Bye
 ```
 
-## Apache Web Server
+### Apache Web Server
 Von der
 [Apache Lounge Download](https://www.apachelounge.com/download/)
 Seite habe ich mir die Zip-Datei
@@ -337,7 +336,7 @@ endlocal
 exit
 ```
 
-### HTTPS (SSL)
+#### HTTPS (SSL)
 Will man lokal auch mit HTTPS Verbindungen testen, kann man
 zusätzlich das Apache SSL Modul aktivieren.
 
@@ -408,7 +407,7 @@ CustomLog "C:/Tools/wamp/apache/logs/ssl_request_log" \
 * wamp_noenc.key  
   Web Server Private Key.
 
-#### Erzeugen eines Self-Signed Serverzertifikat
+##### Erzeugen eines Self-Signed Serverzertifikat
 Die obigen Dateien habe ich auf einem Debian 13.3 System mit
 OpenSSL 3.5.4 folgendermaßen erstellt.
 
@@ -501,7 +500,7 @@ Certificate:
 In der WAMP Umgebung kann man OpenSSL 3.6.0.1 verwenden
 (_apache\bin\openssl.exe_).
 
-## PHP
+### PHP
 Von der
 [Windows PHP Download](https://windows.php.net/download/)
 Seite habe ich die PHP 8.4.16 Version
@@ -564,7 +563,7 @@ C:\Tools\wamp>apache\bin\httpd.exe -t
 Syntax OK
 ```
 
-## phpMyAdmin
+### phpMyAdmin
 Von der
 [phpMyAdmin Downloads](https://www.phpmyadmin.net/downloads/)
 Seite habe ich die ZIP-Datei
@@ -673,7 +672,7 @@ Benutzer anlegen
 Benutzerrechte setzen
 ![Benutzerrechte setzen](phpMyAdmin_UserGrants.png)
 
-### Verbindung zur Testdatenbank aufbauen
+#### Verbindung zur Testdatenbank aufbauen
 
 ```
 C:\Tools\wamp>mariadb\bin\mysql.exe --user=wamp --password=123456 dbwamp

@@ -4,7 +4,7 @@
 dev_addr = "localhost:8000"
 
 site_name = "TechNotes"
-site_description = "My TechNotes Site"
+site_description = "My technical notes site"
 site_author = "Manfred Rosenboom>"
 site_url = "https://maroph.github.io/technotes/"
 
@@ -219,4 +219,3 @@ actions = [
     "reject",
     "manage" 
 ]
-

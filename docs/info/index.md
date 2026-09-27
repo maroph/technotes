@@ -1,3 +1,3 @@
 # Info
-This sample website was created using [Zensical](https://zensical.org).
-
+This site was created with 
+[Zensical](https://zensical.org).
