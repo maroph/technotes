@@ -1,5 +1,5 @@
-# 26-SEP-2026
-# Zensical >= 0.0.65
+# 08-NOV-2026
+# Zensical >= 0.1.0
 [project]
 dev_addr = "localhost:8000"
 
@@ -39,14 +39,11 @@ extra_css = ["assets/extra/css/extra.css"]
 [project.validation]
 invalid_links = true
 invalid_link_anchors = true
-# unresolved_references: 0.0.56: deprecated, will be remove in a future release
 unresolved_references = false
 
 
 [project.theme]
 font = false
-# favicon = "assets/great_wave_off_kanagawa_100x100.png"
-# logo = "assets/great_wave_off_kanagawa_100x100.png"
 favicon = "assets/TechNotes-logo_100x100.png"
 logo = "assets/TechNotes-logo_100x100.png"
 language = "en"
@@ -97,7 +94,6 @@ palette = [
 
 
 [project.theme.icon]
-# logo = "lucide/smile"
 repo = "fontawesome/brands/github"
 edit = "material/pencil"
 view = "material/eye"
@@ -105,7 +101,6 @@ previous = "fontawesome/solid/angle-left"
 next = "fontawesome/solid/angle-right"
 
 
-# Enabled Markdown Extensions
 [project.markdown_extensions.attr_list]
 
 [project.markdown_extensions.pymdownx.emoji]
@@ -128,7 +123,7 @@ pygments_lang_class = "true"
 
 [project.plugins.blog]
 enabled = true
-authors = true
+authors = false
 blog_dir = "blog"
 blog_toc = true
 draft = false
@@ -161,6 +156,9 @@ htmlmin_opts = {
     remove_comments = true
 }
 
+[project.plugins.privacy]
+enabled = true
+
 [project.plugins.rss]
 enabled = true
 match_path = "blog/posts/.*"
@@ -188,6 +186,9 @@ length = 10
 pretty_print = true
 rss_feed_enabled = true
 use_git = true
+
+[project.plugins.search]
+enabled = true
 
 
 [project.extra]
